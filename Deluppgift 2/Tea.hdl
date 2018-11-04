@@ -1,0 +1,17 @@
+CHIP Tea {
+	IN d[2], t, bi;
+	OUT bl, m;
+
+	PARTS:
+	Not(in=d[1], out=a1);
+	Not(in=d[0], out=b1);
+	And(a=a1, b=b1, out=k1);
+	Not(in=t, out=outt);
+	And(a=k1, b=outt, out=bl);
+	Not(in=d[0], out=a2);
+	And(a=a2, b=d[0], out=k2);
+	Not(in=d[0], out=b3);
+	And(a=d[1], b=b3, out=k3);
+	And(a=k3, b=bi, out=k4);
+	Or(a=k2, b=k4, out=m);
+}
